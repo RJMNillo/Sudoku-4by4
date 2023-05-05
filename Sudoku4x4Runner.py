@@ -1,4 +1,5 @@
 from Sudoku4x4 import SudoSquare
+import time
 import random
 
 def Sudo4Solver(square):
@@ -28,6 +29,7 @@ def Sudo4Solver(square):
         Square.printSquare()
 
 if __name__ == "__main__":
+    begin = time.time()
     ASquare = [
         [0,0,0,0],
         [0,0,0,0],
@@ -36,4 +38,7 @@ if __name__ == "__main__":
     ]
 
     Sudo4Solver(ASquare)
+    end = time.time()
+
+    print(f"Time Elapsed: {end - begin}")
 
