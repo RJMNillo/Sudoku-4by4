@@ -9,18 +9,19 @@ def Sudo9Solver(square):
         print("There are some empty spaces left")
         Square.checkAvailabilityMatrix()
         if(Square.CheckBlocks()):
-            print("Program can't go any further...")
-            break
+            print("We're blocked. Removing num...")
+            Square.removeNumber(somex,somey)
+            continue
         # TightlyAvailableNumber = min(min(Square.Availability_Matrix))
         # print(str(TightlyAvailableNumber))
         # With this minimum, we can do a random lookup and add a number from there
         somex = random.randint(0,8)
         somey = random.randint(0,8)
-        # AvailableNumber = Square.Availability_Matrix[somey][somex]
-        # while AvailableNumber > TightlyAvailableNumber:
-            # somex = random.randint(0,8)
-            # somey = random.randint(0,8)
-            # AvailableNumber = Square.Availability_Matrix[somey][somex]
+        AvailableNumber = Square.Availability_Matrix[somey][somex]
+        while AvailableNumber == 99:
+            somex = random.randint(0,8)
+            somey = random.randint(0,8)
+            AvailableNumber = Square.Availability_Matrix[somey][somex]
         print(f"We are looking at {somex},{somey}")
 
         # Next, We can now use this 

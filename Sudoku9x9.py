@@ -163,6 +163,10 @@ class SudoSquare:
         # use random guess to put in the number
         if len(AvailableNumbers) > 0:
             self.Square[y][x] = random.choice(AvailableNumbers)
+    
+    # Method for removing a number, in case there's a block
+    def removeNumber(self, x, y):
+        self.Square[y][x] = 0
 
 
 
