@@ -12,13 +12,13 @@ def Sudo9Solver(square):
             print("We're blocked. Removing num...")
             Square.removeNumber(somex,somey)
             continue
-        # TightlyAvailableNumber = min(min(Square.Availability_Matrix))
-        # print(str(TightlyAvailableNumber))
-        # With this minimum, we can do a random lookup and add a number from there
+        WideAvailableNumber = max(max(Square.Availability_Matrix))
+        print(f"Widely Available Space: {WideAvailableNumber}")
+        # With this maximum, we can do a random lookup and add a number from there
         somex = random.randint(0,8)
         somey = random.randint(0,8)
         AvailableNumber = Square.Availability_Matrix[somey][somex]
-        while AvailableNumber == 99:
+        while AvailableNumber < WideAvailableNumber:
             somex = random.randint(0,8)
             somey = random.randint(0,8)
             AvailableNumber = Square.Availability_Matrix[somey][somex]

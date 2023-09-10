@@ -86,7 +86,7 @@ class SudoSquare:
                 if self.Square[y][x] > 0:
                     # Set its matrix to 99
                     # So that value isn't considered for min
-                    self.Availability_Matrix[y][x] = 99
+                    self.Availability_Matrix[y][x] = -1
                 else:
                     self.checkAvailableNumbers(y, x)
         print("Availability matrix:")
@@ -177,13 +177,13 @@ if __name__ == "__main__":
     while(Square.checkEmpty()):
         print("There are some empty spaces left")
         Square.checkAvailabilityMatrix()
-        TightlyAvailableNumber = min(min(Square.Availability_Matrix))
+        TightlyAvailableNumber = max(max(Square.Availability_Matrix))
         # print(str(TightlyAvailableNumber))
         # With this minimum, we can do a random lookup and add a number from there
         somex = random.randint(0,8)
         somey = random.randint(0,8)
         AvailableNumber = Square.Availability_Matrix[somey][somex]
-        while AvailableNumber > TightlyAvailableNumber:
+        while AvailableNumber < TightlyAvailableNumber:
             somex = random.randint(0,8)
             somey = random.randint(0,8)
             AvailableNumber = Square.Availability_Matrix[somey][somex]
