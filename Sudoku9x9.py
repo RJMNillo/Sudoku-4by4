@@ -84,7 +84,7 @@ class SudoSquare:
             for x in range(0,len(self.Square[y])):
                 # Is the square filled already?
                 if self.Square[y][x] > 0:
-                    # Set its matrix to 99
+                    # Set its matrix to -1
                     # So that value isn't considered for min
                     self.Availability_Matrix[y][x] = -1
                 else:
@@ -118,21 +118,22 @@ class SudoSquare:
         if text[1] == '0':
             rangey = 0
         elif text[1] == '1':
-            rangey = 1
+            rangey = 3
         else:
-            rangey = 2
+            rangey = 6
         # X
         if text[2] == '0':
             rangex = 0
         elif text[2] == '1':
-            rangex = 1
+            rangex = 3
         else:
-            rangex = 2
+            rangex = 6
         
         for y in range(rangey, rangey+3):
             for x in range(rangex,rangex+3):
                 if self.Square[y][x] > 0:
                     if self.Square[y][x] in availabilitylist:
+                        print(f"{self.Square[y][x]} found in {y},{x}")
                         availabilitylist.remove(self.Square[y][x])
 
     # Check the Availability Matrix
